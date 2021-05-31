@@ -24,7 +24,9 @@ using namespace arithmetic_tuple;
 
 int main ()
 {
-    ArithmeticTuple<std::tuple<int,double>> t0;
+    auto t0 = make_arithmetic(std::make_tuple(1,2.0f)) * 2 - std::make_tuple(1.0f,2);
+    std::cout << std::get<0>(t0) << " " << std::get<1>(t0) << std::endl;
+
     ArithmeticTuple<std::tuple<int,double>> t1 = std::make_tuple(1,2);
     ArithmeticTuple<std::tuple<float,int>> t2 = std::make_tuple(3,4);
     auto t3 = t1 + t1;
@@ -64,10 +66,12 @@ int main ()
     Foo bar_ = make_arithmetic(bar) * make_arithmetic(0.3) + (1-0.3) * make_arithmetic(foo);
     std::cout << bar_.a << " " << bar_.b << std::endl;
 }
+
 ```
 
 Output:
 ```
+1 2
 1 2
 3 4
 2 4
